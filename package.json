@@ -1,0 +1,22 @@
+{
+  "name": "fastify-testing",
+  "version": "1.0.0",
+  "description": "fatify-testing",
+  "main": "main.ts",
+  "scripts": {
+    "build": "tsc -w",
+    "start:dev": "pnpm build && fastify start -w -Vinfo -P dist/main.js"
+  },
+  "keywords": [],
+  "author": "SangHyun Jang <public.winverse@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/env": "^4.2.0",
+    "fastify": "^4.17.0",
+    "fastify-cli": "^5.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.3",
+    "typescript": "^5.0.4"
+  }
+}

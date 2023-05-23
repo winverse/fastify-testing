@@ -1,0 +1,12 @@
+# modules
+node_modules
+
+# lock
+pnpm-lock.yaml
+
+# build
+dist
+
+# utils
+DS_Store
+
