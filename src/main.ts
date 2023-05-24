@@ -18,7 +18,7 @@ async function bootstrap(): Promise<void> {
   await server.register(fastifyEnv, envOptions)
 
   try {
-    await server.listen({ port: 8080 })
+    await server.listen({ port: server.config.PORT })
   } catch (err) {
     server.log.error(err)
     process.exit(1)
