@@ -1,16 +1,28 @@
-import Fastify from 'fastify'
+import Fastify, { FastifyInstance } from 'fastify'
 import fastifyEnv from '@fastify/env'
-
 import { envOptions } from './env'
 
-const server = Fastify({
-  logger: true,
-})
+async function bootstrap(): Promise<void> {
+  const server: FastifyInstance = Fastify({
+    logger: {
+      transport: {
+        target: 'pino-pretty',
+        options: {
+          translateTime: 'HH:MM:ss',
+          ignore: 'pid,hostname',
+        },
+      },
+    },
+  })
 
-console.log(process.env.NODE_ENV)
-// server.register(fastifyEnv, envOptions)
+  await server.register(fastifyEnv, envOptions)
 
-server.listen({ port: 3000 }, (err, address) => {
-  console.log(address)
-  console.info('Hello')
-})
+  try {
+    await server.listen({ port: 8080 })
+  } catch (err) {
+    server.log.error(err)
+    process.exit(1)
+  }
+}
+
+bootstrap()

@@ -4,8 +4,8 @@
   "description": "fatify-testing",
   "main": "main.ts",
   "scripts": {
-    "build": "tsc -w",
-    "start:dev": "pnpm build && fastify start -w -Vinfo -P dist/main.js"
+    "build": "tsc",
+    "start:dev": "nodemon --exec ts-node src/main.ts"
   },
   "keywords": [],
   "author": "SangHyun Jang <public.winverse@gmail.com>",
@@ -13,10 +13,13 @@
   "dependencies": {
     "@fastify/env": "^4.2.0",
     "fastify": "^4.17.0",
-    "fastify-cli": "^5.7.1"
+    "fastify-cli": "^5.7.1",
+    "nodemon": "^2.0.22"
   },
   "devDependencies": {
+    "@tsconfig/node18": "^2.0.1",
     "@types/node": "^20.2.3",
+    "pino-pretty": "^10.0.0",
     "typescript": "^5.0.4"
   }
 }
