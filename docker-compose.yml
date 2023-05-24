@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  app:
+    container_name: fastify-testing
+    build: ./
+    ports:
+      - '8080:8080'
+    env_file:
+      - ./.env.development
+    depends_on:
+      - postgresql
+  postgresql:
+    container_name: postgresql
+    image: postgres:15
+    volumes:
+      - ./docker/data:/var/lib/postgresql/data
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: example
+  
