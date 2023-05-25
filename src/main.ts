@@ -1,6 +1,7 @@
 import Fastify, { FastifyInstance } from 'fastify'
 import fastifyEnv from '@fastify/env'
 import { envOptions } from './env'
+import routes from './routes'
 
 async function bootstrap(): Promise<void> {
   const server: FastifyInstance = Fastify({
@@ -16,6 +17,8 @@ async function bootstrap(): Promise<void> {
   })
 
   await server.register(fastifyEnv, envOptions)
+
+  server.register(routes)
 
   try {
     await server.listen({ port: server.config.PORT })
