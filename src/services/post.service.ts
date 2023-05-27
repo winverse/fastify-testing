@@ -1,9 +1,10 @@
-export const postService = {
-  async create({ title, text }: CreatePostParams) {},
-  async read(postId: string) {},
-  async list({ cursor, limit }: ListPostParams) {},
-  async update({ postId, title, text }: UpdatePostParams) {},
-  async delete(postId: string) {},
+export default class PostService {
+  constructor(prisma: any) {}
+  public async create({ title, text }: CreatePostParams) {}
+  public async read(postId: string) {}
+  public async list({ cursor, limit }: ListPostParams) {}
+  public async update({ postId, title, text }: UpdatePostParams) {}
+  public async delete(postId: string) {}
 }
 
 type CreatePostParams = {

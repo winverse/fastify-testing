@@ -1,7 +1,9 @@
 import Fastify, { FastifyInstance } from 'fastify'
 import fastifyEnv from '@fastify/env'
+import { fastifyAwilixPlugin } from '@fastify/awilix'
 import { envOptions } from './env'
-import routes from './routes'
+import { routes } from './routes'
+import { serviceDiContainer } from './services'
 
 async function bootstrap(): Promise<void> {
   const server: FastifyInstance = Fastify({
@@ -17,7 +19,12 @@ async function bootstrap(): Promise<void> {
   })
 
   await server.register(fastifyEnv, envOptions)
+  server.register(fastifyAwilixPlugin, {
+    disposeOnClose: true,
+    disposeOnResponse: true,
+  })
 
+  await server.register(serviceDiContainer)
   server.register(routes)
 
   try {
