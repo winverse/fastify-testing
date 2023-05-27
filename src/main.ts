@@ -25,6 +25,7 @@ async function bootstrap(): Promise<void> {
   })
 
   await server.register(serviceDiContainer)
+
   server.register(routes)
 
   try {
