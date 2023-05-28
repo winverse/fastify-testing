@@ -13,7 +13,7 @@ export const serviceDiContainer: FastifyPluginAsync = async (fastify) => {
   const files = fs.readdirSync(__dirname, { encoding: 'utf-8' })
 
   files.forEach(async (file) => {
-    const filename = path.basename(file, '.ts')
+    const { name: filename } = path.parse(file)
 
     if (except.includes(filename)) return
 

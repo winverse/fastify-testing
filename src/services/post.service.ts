@@ -1,5 +1,7 @@
 export default class PostService {
-  constructor(prisma: any) {}
+  constructor(opt: any) {
+    console.log(opt)
+  }
   public async create({ title, text }: CreatePostParams) {}
   public async read(postId: string) {}
   public async list({ cursor, limit }: ListPostParams) {}

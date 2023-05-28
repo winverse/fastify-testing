@@ -1,3 +1,5 @@
+import 'module-alias/register'
+
 import Fastify, { FastifyInstance } from 'fastify'
 import fastifyEnv from '@fastify/env'
 import { fastifyAwilixPlugin } from '@fastify/awilix'
@@ -19,6 +21,7 @@ async function bootstrap(): Promise<void> {
   })
 
   await server.register(fastifyEnv, envOptions)
+
   server.register(fastifyAwilixPlugin, {
     disposeOnClose: true,
     disposeOnResponse: true,
