@@ -2,8 +2,8 @@ import Fastify, { FastifyInstance } from 'fastify'
 import fastifyEnv from '@fastify/env'
 import { fastifyAwilixPlugin } from '@fastify/awilix'
 import { envOptions } from './env'
-import { routes } from './routes'
-import { serviceDiContainer } from './services'
+import { routes } from '@routes'
+import { serviceDiContainer } from '@services'
 
 async function bootstrap(): Promise<void> {
   const server: FastifyInstance = Fastify({

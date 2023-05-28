@@ -14,6 +14,7 @@ export const serviceDiContainer: FastifyPluginAsync = async (fastify) => {
 
   files.forEach(async (file) => {
     const filename = path.basename(file, '.ts')
+
     if (except.includes(filename)) return
 
     const { default: service } = await import(`./${filename}`)
