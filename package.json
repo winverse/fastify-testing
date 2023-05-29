@@ -4,6 +4,7 @@
   "description": "fatify-testing",
   "main": "main.ts",
   "scripts": {
+    "prisma": "dotenv -e .env.development npx prisma",
     "build": "tsc",
     "start:prod": "node ./dist/main.js",
     "start:dev": "nodemon"
@@ -20,11 +21,14 @@
   "dependencies": {
     "@fastify/awilix": "^3.0.2",
     "@fastify/env": "^4.2.0",
+    "@prisma/client": "4.14.1",
     "awilix": "^8.0.1",
+    "dotenv-cli": "^7.2.1",
     "fastify": "^4.17.0",
     "fastify-cli": "^5.7.1",
     "module-alias": "^2.2.2",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "prisma": "^4.14.1"
   },
   "devDependencies": {
     "@tsconfig/node18": "^2.0.1",

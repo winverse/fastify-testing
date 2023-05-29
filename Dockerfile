@@ -7,10 +7,11 @@ RUN npm install -g pnpm@8.6.0
 COPY package.json pnpm-lock.yaml ./
 
 # Install dependencies using pnpm
-RUN pnpm install
+RUN pnpm install 
 
 COPY . .
 
 EXPOSE 8080
 
-CMD ["pnpm", "start:dev"]
+RUN chmod +x scripts/docker-entrypoint.sh 
+ENTRYPOINT ["sh","/usr/app/scripts/docker-entrypoint.sh"]
